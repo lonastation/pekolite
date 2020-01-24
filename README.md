@@ -1,2 +1,0 @@
-# pekolite
-log account

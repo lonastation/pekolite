@@ -1,16 +1,119 @@
-# peko_lite_app
+## Peko
 
-local account logger
+### 一、前言
 
-## Getting Started
+为什么要做peko(名称暂定)？
 
-This project is a starting point for a Flutter application.
+因为我的记账APP跑路了，带着我记了两年的账跑路了。
 
-A few resources to get you started if this is your first Flutter project:
+qswl
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+于是，在甄选下一个APP的时候，有了硬性的要求：
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+本地存储，不依赖云端，可以导出备份。
+
+考察魅族商店现有记账类应用未发现符合要求的APP，故自力更生。
+
+### 二、需求
+
+根据个人使用习惯，功能点梳理如下：
+
+- 记账
+- 账目分类
+- 统计
+- 本地存储
+- 导出文档备份
+- 导入文档迁移数据
+
+前三条主流APP都给出了范例，peko只做基本功能。
+
+#### 2.1 记账
+
+记录时间、类别、备注、金额
+
+#### 2.2 账目类别
+
+在主流APP中，存在两种类别设定：
+
+- 建立不同的账目，每个账本中建立类别
+
+- 建立两级或多级类别
+
+其实是差不多的，主要是考虑客户的使用场景多，但我不需要那么多类别。
+
+我的使用场景就是记录大额的娱乐开销，所以去掉账本概念，也去掉多级类别。
+
+peko只支持一级目录。
+
+#### 2.3 统计
+
+统计的需求更加私人，之前使用的账本基本不符合需求。
+
+我关心的事情：
+
+- 在某个事情上一共花了多少钱
+
+- 事情ABC花的钱占比是怎么样的
+
+看上去似乎别的APP也都有，但是我更关心：
+
+- 在2019年ACD三个类别一共花了多少钱
+
+- 在2019年BDFT这五个类别在总额中占比多少
+
+- 迄今为止，HGT这三个类别一共花了多少钱
+
+也就是：
+
+时间自由、类别自由。
+
+所以统计模块支持选择：
+
+年份，月份，类别（多选）
+
+统计结果包含：
+
+- 总收支
+
+- 月变化，包括总收支变化和类别收支变化
+
+- 类别相对于总额的占比
+
+#### 2.4 本地存储
+
+1.本地数据库
+
+2.可以导出文档，暂定Excel
+
+导出时允许筛选时间和类别
+
+3.导入文档，暂定Excel
+
+解决换手机后同步数据的问题
+
+#### 2.5 系统日志
+
+1.一般记录
+
+如账目增删改，类别增删改，统计查询
+
+2.错误记录
+
+交互执行过程发生的异常，如保存数据失败，校验失败，统计查询结果失败等。
+
+
+### 三、技术栈
+
+flutter + sqflite + vue
+
+可能没有vue
+
+抛弃hippy是因为突然发现hippy没有文档 
+
+UE的话见peko.rp
+
+UI的话，考虑到版权问题，可能要自己画点东西
+
+### 四、数据库
+
+表设计等框架安排上了再搞，不是很急
